@@ -1,1 +1,1 @@
-Addon version: 0.5
+Addon version: 0.8
