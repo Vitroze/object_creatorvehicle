@@ -76,7 +76,7 @@ list.Set( "Vehicles", "%vehID", V )
 */
 ]]
 
-// Create a code automatically to put an object on the vehicle in Lua
+-- Create a code automatically to put an object on the vehicle in Lua
 function VehiculeCustomizerVitroze:CompileCode(vehName, catName, information, propModel, propVectorX, propVectorY, propVectorZ, propAngleYaw, propAnglePitch, propAngleRoll)
     local lp           = LocalPlayer()
     if !IsValid(lp) then return end 
@@ -96,7 +96,7 @@ function VehiculeCustomizerVitroze:CompileCode(vehName, catName, information, pr
 
     local vehID        = string.lower(vehAuthor.." "..vehName)
 
-    // Detecting special characters in string lua
+    -- Detecting special characters in string lua
     local tbl = {"!", " ", "_", '"', "#", "$", '%', "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "`", "{", "|", "}", "~"}
     for _, v in pairs(tbl) do 
         if v == "%" or v == "(" or v == ")" or v == "[" or v == "]" then vehID = vehID:Replace(v, "_") continue
@@ -129,7 +129,6 @@ function VehiculeCustomizerVitroze:CompileCode(vehName, catName, information, pr
 end
 concommand.Add("object_creator_vehicle_generate_code", function()
     VehiculeCustomizerVitroze:CompileCode(GetConVar("vc_name"):GetString(), GetConVar("vc_category"):GetString(), GetConVar("vc_information"):GetString(), GetConVar("vc_props"):GetString(), GetConVar("vc_x"):GetFloat(), GetConVar("vc_y"):GetFloat(), GetConVar("vc_z"):GetFloat(), GetConVar("vc_pitch"):GetFloat(), GetConVar("vc_yaw"):GetFloat(), GetConVar("vc_roll"):GetFloat())
-
 end)
 
 
@@ -147,7 +146,7 @@ function VehiculeCustomizerVitroze:VisualProps(propModel, propVectorX, propVecto
     if propModel == "" or propModel == nil then notification.AddLegacy("You did not put a model for the props", NOTIFY_ERROR, 2) return end
 
 
-    // Check if the props already exist 
+    -- Check if the props already exist 
     local prop = car:GetChildren()
     if #prop > 0 then
         for k, v in pairs(prop) do
